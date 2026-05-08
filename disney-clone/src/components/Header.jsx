@@ -91,7 +91,7 @@ function Header() {
 
           {/* Remaining Menu */}
           {toggle && (
-            <div className="absolute top-15 right-[20px] bg-[#121212] p-3 rounded-sm flex flex-col gap-3">
+            <div className="absolute top-15 right-[20px] bg-[#131520] p-3 rounded-sm flex flex-col gap-3">
               {menu.map((item, index) => (
                 index > 2 && (
                   <HeaderItem
