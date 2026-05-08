@@ -1,28 +1,82 @@
-import React, { useEffect, useState } from "react";
-import GlobalApi from '../services/GlobalApi'
+import React, { useEffect, useRef, useState } from "react";
+import GlobalApi from "../services/GlobalApi";
 
-function Slider(){
-    const [movieList,setmovieList]=useState([]);
+import { HiChevronLeft, HiChevronRight } from "react-icons/hi";
 
-    useEffect(() => {
-        getTrendingVideos();
-    }, []);
+const IMAGE_BASE_URL = "https://image.tmdb.org/t/p/original";
 
-    const getTrendingVideos = () => {
+function Slider() {
 
-        GlobalApi.then((resp) => {
-            setmovieList(resp.data.results);
-        });
+  const [movieList, setmovieList] = useState([]);
 
-    };
+  const elementRef = useRef(null);
 
-    return(
-       <div>
-        {movieList.map((item,index)=>{
-            <img src='' />
-        })}
-       </div>
-    )
+  useEffect(() => {
+    getTrendingVideos();
+  }, []);
+
+  const getTrendingVideos = () => {
+
+    GlobalApi.then((resp) => {
+      setmovieList(resp.data.results);
+    });
+
+  };
+
+  const sliderRight = () => {
+
+    elementRef.current.scrollBy({
+      left: 500,
+      behavior: "smooth"
+    });
+
+  };
+
+  const sliderLeft = () => {
+
+    elementRef.current.scrollBy({
+      left: -500,
+      behavior: "smooth"
+    });
+
+  };
+
+  return (
+
+    <div className="relative">
+
+      {/* Left Arrow */}
+      <HiChevronLeft
+        className="hidden md:block text-white text-[40px] absolute left-4 top-[50%] cursor-pointer z-10"
+        onClick={sliderLeft}
+      />
+
+      {/* Right Arrow */}
+      <HiChevronRight
+        className="hidden md:block text-white text-[40px] absolute right-4 top-[50%] cursor-pointer z-10"
+        onClick={sliderRight}
+      />
+
+      {/* Slider */}
+      <div
+        ref={elementRef}
+        className="flex overflow-x-auto w-full px-16 py-4 gap-5 scroll-smooth scrollbar-hide"
+      >
+
+        {movieList.map((item, index) => (
+
+          <img
+            key={index}
+            src={IMAGE_BASE_URL + item.backdrop_path}
+            className="min-w-full md:h-[410px] object-cover object-left-top rounded-md"
+          />
+
+        ))}
+
+      </div>
+
+    </div>
+  );
 }
 
-export default Slider
+export default Slider;
