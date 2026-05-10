@@ -17,16 +17,15 @@ function Slider() {
 
   const getTrendingVideos = () => {
 
-    GlobalApi.then((resp) => {
+    GlobalApi.getTrendingVideos.then((resp) => {
       setmovieList(resp.data.results);
     });
-
   };
 
   const sliderRight = () => {
 
     elementRef.current.scrollBy({
-      left: 500,
+      left: 1350,
       behavior: "smooth"
     });
 
@@ -35,7 +34,7 @@ function Slider() {
   const sliderLeft = () => {
 
     elementRef.current.scrollBy({
-      left: -500,
+      left: -1350,
       behavior: "smooth"
     });
 
@@ -68,7 +67,7 @@ function Slider() {
           <img
             key={index}
             src={IMAGE_BASE_URL + item.backdrop_path}
-            className="min-w-full md:h-[410px] object-cover object-left-top rounded-md"
+            className="min-w-full md:h-[510px] object-cover object-left-top rounded-md"
           />
 
         ))}
