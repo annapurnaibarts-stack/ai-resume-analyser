@@ -37,7 +37,7 @@ function MovieList({ genreId, index_ }) {
 
     return (
 
-        <div className='relative group'>
+        <div className='relative group overflow-hidden'>
 
             {/* Left Arrow */}
             <HiChevronLeft
@@ -67,7 +67,7 @@ function MovieList({ genreId, index_ }) {
                         key={index}
                         className='flex-none w-[220px] md:w-[240px] hover:scale-110 transition-all duration-300 ease-in-out'
                     >
-                        {index % 3 === 0
+                        {(index + 1) % 3 === 0
                             ? <HrMovieCard movie={item} />
                             : <MovieCard movie={item} />
                         }

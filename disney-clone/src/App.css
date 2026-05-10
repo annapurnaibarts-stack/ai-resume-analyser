@@ -1,9 +1,15 @@
-*{
-  overflow-x:hidden;
-
+body,
+html{
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+* {
+  box-sizing: border-box;
 }
 #root {
   background-color: #131520;
+  width: 100%;
+  overflow-x: hidden;
 }
 /* Hide Scrollbar */
 .scrollbar-hide::-webkit-scrollbar {

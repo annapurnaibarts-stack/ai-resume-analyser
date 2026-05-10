@@ -42,12 +42,12 @@ function ProductionHouse(){
 
     ]
     return(
-        <div class="flex gap-2 md:gap-5 p-2 px-5 md:px-16 ">
+        <div className="flex gap-2 md:gap-5 p-2 px-3 md:px-16 overflow-hidden">
             {ProductionHouseList.map((item)=>{
                 return(
-                <div class='border-[2px] border-gray-600 rounded-lg hover:scale-110 transition-all duration-300 ease-in-out cursor-pointer ' >
-                    <img src={item.image} class="w-full z-[1]" />
-                    <video src={item.video}  class="absolute top-0 rounded-md z-0 opacity-0 hover:opacity-50" autoPlay loop playsInline />
+                <div className='border-[2px] border-gray-600 rounded-lg hover:scale-110 transition-all duration-300 ease-in-out cursor-pointer' >
+                    <img src={item.image} className="w-full z-[1]" />
+                    <video src={item.video}  className="absolute top-0 rounded-md z-0 opacity-0 hover:opacity-50" autoPlay loop playsInline />
                 </div>
                 )
             })}

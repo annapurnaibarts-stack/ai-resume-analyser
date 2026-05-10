@@ -42,7 +42,7 @@ function Slider() {
 
   return (
 
-    <div className="relative">
+    <div className="relative overflow-hidden">
 
       {/* Left Arrow */}
       <HiChevronLeft
@@ -59,7 +59,7 @@ function Slider() {
       {/* Slider */}
       <div
         ref={elementRef}
-        className="flex overflow-x-auto w-full px-16 py-4 gap-5 scroll-smooth scrollbar-hide"
+        className="flex overflow-x-auto w-full px-4 md:px-16 py-4 gap-5 scroll-smooth scrollbar-hide"
       >
 
         {movieList.map((item, index) => (

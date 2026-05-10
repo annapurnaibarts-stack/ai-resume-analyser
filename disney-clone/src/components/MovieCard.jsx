@@ -9,7 +9,7 @@ function MovieCard({movie}){
                 src={IMAGE_BASE_URL + movie.poster_path}
                 alt={movie.title || movie.name || 'movie poster'}
             />
-           <h2 class='text-white text-center mt-80'>{movie.title}</h2> 
+           <h2 class='text-white text-center '>{movie.title}</h2> 
 
         </div>
     )
